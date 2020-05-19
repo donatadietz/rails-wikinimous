@@ -1,0 +1,14 @@
+<script src="https://kit.fontawesome.com/dd423b598b.js" crossorigin="anonymous"></script>
+
+<h1>Articles</h1>
+
+<ul>
+  <% @articles.each do |article| %>
+  <li><strong><%= article.title.capitalize %></strong> : <%= article.content %></li>
+  <%= link_to article_path(article), method: :delete, data: { confirm: "Are you sure? "} do %>
+  <i class="fal fa-trash-alt"></i>
+  <% end %>
+  <% end %>
+</ul>
+
+<%= link_to "Create new article", new_article_path %>
